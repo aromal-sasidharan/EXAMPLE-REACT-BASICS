@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 
 import Person from './components/person/Person'
+import Radium from 'radium'
 import './App.css';
+
 
 class App extends Component {
     state = {
@@ -47,9 +49,14 @@ class App extends Component {
 
     render() {
         const style = {
-            backgroundColor: "#eee",
+            backgroundColor: "green",
+            color:"white",
             border: "1px solid blue",
-            cursor: "pointer"
+            padding:"8px",
+            cursor: "pointer",
+            ':hover':{
+                backgroundColor:"lightgreen"
+            }
         };
         const persons = this.state.showPersons ? (
 
@@ -68,9 +75,26 @@ class App extends Component {
                 }
             </div>
         ) : null;
+        if (persons){
+            style.backgroundColor = "red";
+            style[':hover'] = {
+                backgroundColor:"salmon",
+                color:"black"
+            };
+        }
+        let classes  = [];
 
+
+        if (this.state.persons.length <= 2){
+            classes = ['red']
+        }
+        if (this.state.persons.length <= 1){
+            classes = ['red','bold']
+        }
+        classes = classes.join(' ');
         return (
             <div className="App">
+                <p className={classes}> This really works! </p>
                 <button
                     style={style}
                     onClick={this.togglePersonsList}>
@@ -82,4 +106,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default Radium(App);
