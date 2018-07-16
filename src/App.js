@@ -2,26 +2,81 @@ import React, {Component} from 'react';
 
 import Person from './components/person/Person'
 import './App.css';
+
 class App extends Component {
     state = {
-        persons:[
-            { name:"Aromal", age:28 },
-            { name:"Adarsh", age:30 },
-            { name:"Shiju", age:40 }
+        persons: [
+            {name: "Aromal", age: 28, id:Math.random()},
+            {name: "Adarsh", age: 30, id:Math.random()},
+            {name: "Shiju", age: 40,  id:Math.random()},
         ],
-    }
-    switchTextHandler = () => {
-        console.log("Hello");
-    }
+        showPersons: true
+    };
+    onPersonDelete = (key) => {
+        this.setState(prevState => {
+                return {
+                    persons: prevState.persons.filter((person) => {
+                        return person.id !== key
+                    })
+                }
+            }
+        );
+
+    };
+    onChangeHandler = (event,id) => {
+
+        const persons = [...this.state.persons];
+        const index = persons.findIndex( person =>{
+           return person.id === id
+        });
+        if (persons[index]) {
+            persons[index].name = event.target.value;
+            this.setState({
+                persons: persons
+            });
+        }
+    };
+    togglePersonsList = () => {
+        const doShow = this.state.showPersons;
+        this.setState(
+            {
+                showPersons: !doShow
+            }
+        );
+    };
+
     render() {
+        const style = {
+            backgroundColor: "#eee",
+            border: "1px solid blue",
+            cursor: "pointer"
+        };
+        const persons = this.state.showPersons ? (
+
+            <div>
+                {this.state.persons.map((person) => {
+                    return <Person
+                        key={person.id}
+                        name={person.name}
+                        age={person.age}
+                        onChange={(event) => this.onChangeHandler(event,person.id)}
+                        onDeleteClicked={() => {
+                            this.onPersonDelete(person.id)
+                        }}
+                    />
+                })
+                }
+            </div>
+        ) : null;
+
         return (
             <div className="App">
-                <h1>Hello from react app</h1>
-                <p>This is really working!</p>
-                <button onClick={this.switchTextHandler}>Switch text</button>
-                <Person data={this.state.persons[0]}/>
-                <Person data={this.state.persons[1]}/>
-                <Person data={this.state.persons[2]}> my hobby</Person>
+                <button
+                    style={style}
+                    onClick={this.togglePersonsList}>
+                    Toggle Persons
+                </button>
+                {persons}
             </div>
         );
     }
