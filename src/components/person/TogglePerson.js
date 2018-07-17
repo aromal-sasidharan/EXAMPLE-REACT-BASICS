@@ -2,23 +2,12 @@ import React from 'react'
 import styles from './TogglePerson.css'
 const TogglePerson = (props) => {
 
-
-
-
-    if (props.isPersonsShown){
-        // style.backgroundColor = "red";
-        // style[":hover"] = {
-        //     backgroundColor : "salmon",
-        //     color:"black"
-        // }
-
-    }
-
+    const className = (props.isPersonsShown == false)? styles.TogglePerson : styles.TogglePerson + ' ' + styles.Red;
     return(
         <button
-            className={styles.TogglePerson}
+            className={className}
             onClick={props.onToggle}>
-            Toggle Persons
+            Toggle Personsx
         </button>
     )
 

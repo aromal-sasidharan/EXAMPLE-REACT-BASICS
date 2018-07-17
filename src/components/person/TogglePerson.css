@@ -13,3 +13,10 @@
 
     background:lightgreen;
 }
+
+.TogglePerson.Red{
+    background-color: red;
+}
+.TogglePerson.Red:hover{
+    background-color: salmon;
+}
