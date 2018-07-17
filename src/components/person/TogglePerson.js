@@ -1,5 +1,4 @@
 import React from 'react'
-import Radium from 'radium'
 import styles from './TogglePerson.css'
 const TogglePerson = (props) => {
 
@@ -27,4 +26,4 @@ const TogglePerson = (props) => {
 
 
 
-export default Radium(TogglePerson);
+export default TogglePerson;

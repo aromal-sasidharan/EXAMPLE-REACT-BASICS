@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import PersonList from './components/person/PersonList'
 import TogglePerson from './components/person/TogglePerson'
-import './App.css';
+import styles from './App.css';
 
 
 class App extends Component {
@@ -51,7 +51,7 @@ class App extends Component {
 
 
         return (
-            <div className="App">
+            <div className={styles.App}>
                 <TogglePerson isPersonsShown={this.state.showPersons} onToggle={this.togglePersonsList}/>
                 <PersonList
                     showPersons={this.state.showPersons}

@@ -1,4 +1,4 @@
-:local(.TogglePerson){
+.TogglePerson{
 
     background: green;
     color:white;
@@ -9,7 +9,7 @@
 
 
 
-:local(.TogglePerson:hover){
+.TogglePerson:hover{
 
     background:lightgreen;
 }
