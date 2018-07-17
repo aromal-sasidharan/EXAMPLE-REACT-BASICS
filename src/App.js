@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
-import Person from './components/person/Person'
-import Radium from 'radium'
+import PersonList from './components/person/PersonList'
+import TogglePerson from './components/person/TogglePerson'
 import './App.css';
 
 
@@ -48,62 +48,19 @@ class App extends Component {
     };
 
     render() {
-        const style = {
-            backgroundColor: "green",
-            color:"white",
-            border: "1px solid blue",
-            padding:"8px",
-            cursor: "pointer",
-            ':hover':{
-                backgroundColor:"lightgreen"
-            }
-        };
-        const persons = this.state.showPersons ? (
-
-            <div>
-                {this.state.persons.map((person) => {
-                    return <Person
-                        key={person.id}
-                        name={person.name}
-                        age={person.age}
-                        onChange={(event) => this.onChangeHandler(event,person.id)}
-                        onDeleteClicked={() => {
-                            this.onPersonDelete(person.id)
-                        }}
-                    />
-                })
-                }
-            </div>
-        ) : null;
-        if (persons){
-            style.backgroundColor = "red";
-            style[':hover'] = {
-                backgroundColor:"salmon",
-                color:"black"
-            };
-        }
-        let classes  = [];
 
 
-        if (this.state.persons.length <= 2){
-            classes = ['red']
-        }
-        if (this.state.persons.length <= 1){
-            classes = ['red','bold']
-        }
-        classes = classes.join(' ');
         return (
             <div className="App">
-                <p className={classes}> This really works! </p>
-                <button
-                    style={style}
-                    onClick={this.togglePersonsList}>
-                    Toggle Persons
-                </button>
-                {persons}
+                <TogglePerson isPersonsShown={this.state.showPersons} onToggle={this.togglePersonsList}/>
+                <PersonList
+                    showPersons={this.state.showPersons}
+                    persons={this.state.persons}
+                    onChangeHandler={this.onChangeHandler}
+                    onPersonDelete={this.onPersonDelete}/>
             </div>
         );
     }
 }
 
-export default Radium(App);
+export default App;

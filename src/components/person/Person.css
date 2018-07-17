@@ -6,4 +6,12 @@
      box-shadow: 0 2px 5px black;
      padding:20px;
 
+
+ }
+
+ @media (min-width:500px){
+      :local(.Person) {
+           width:450px;
+           background-color: #DDD;
+      }
  }
