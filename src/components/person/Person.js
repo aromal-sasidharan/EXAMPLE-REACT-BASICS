@@ -2,10 +2,6 @@ import React from 'react';
 import styles from './Person.css';
 
 const Person = (props) => {
-    if (Math.random() > 0.7)
-    {
-        throw new Error("Opps something is wrong")
-    }
     return (
 
         <div className={styles.Person}>

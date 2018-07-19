@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 
-import PersonList from './components/person/PersonList'
-import TogglePerson from './components/person/TogglePerson'
-import ErrorComponent from './components/Error/ErrorComponent'
+import PersonList from '../components/person/PersonList'
+import TogglePerson from '../components/person/TogglePerson'
 import styles from './App.css';
 
 
