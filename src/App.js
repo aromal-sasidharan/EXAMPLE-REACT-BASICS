@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 import PersonList from './components/person/PersonList'
 import TogglePerson from './components/person/TogglePerson'
+import ErrorComponent from './components/Error/ErrorComponent'
 import styles from './App.css';
 
 
@@ -29,7 +30,7 @@ class App extends Component {
 
         const persons = [...this.state.persons];
         const index = persons.findIndex( person =>{
-           return person.id === id
+           return person.userId === id
         });
         if (persons[index]) {
             persons[index].name = event.target.value;
@@ -51,14 +52,16 @@ class App extends Component {
 
 
         return (
-            <div className={styles.App}>
-                <TogglePerson isPersonsShown={this.state.showPersons} onToggle={this.togglePersonsList}/>
-                <PersonList
-                    showPersons={this.state.showPersons}
-                    persons={this.state.persons}
-                    onChangeHandler={this.onChangeHandler}
-                    onPersonDelete={this.onPersonDelete}/>
-            </div>
+
+                <div className={styles.App}>
+                    <TogglePerson isPersonsShown={this.state.showPersons} onToggle={this.togglePersonsList}/>
+                    <PersonList
+                        showPersons={this.state.showPersons}
+                        persons={this.state.persons}
+                        onChangeHandler={this.onChangeHandler}
+                        onPersonDelete={this.onPersonDelete}/>
+                </div>
+
         );
     }
 }
