@@ -1,4 +1,4 @@
-.TogglePerson{
+.TogglePerson button{
 
     background: green;
     color:white;
@@ -9,14 +9,14 @@
 
 
 
-.TogglePerson:hover{
+.TogglePerson button:hover{
 
     background:lightgreen;
 }
 
-.TogglePerson.Red{
+.TogglePerson button.Red{
     background-color: red;
 }
-.TogglePerson.Red:hover{
+.TogglePerson button.Red:hover{
     background-color: salmon;
 }

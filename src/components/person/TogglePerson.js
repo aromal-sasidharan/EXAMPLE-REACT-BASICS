@@ -2,13 +2,15 @@ import React from 'react'
 import styles from './TogglePerson.css'
 const TogglePerson = (props) => {
 
-    const className = (props.isPersonsShown == false)? styles.TogglePerson : styles.TogglePerson + ' ' + styles.Red;
+    const className = (props.isPersonsShown == false)? '' : styles.Red;
     return(
-        <button
-            className={className}
-            onClick={props.onToggle}>
-            Toggle Personsx
-        </button>
+        <div className={styles.TogglePerson}>
+            <button
+                className={className}
+                onClick={props.onToggle}>
+                Toggle Personsx
+            </button>
+        </div>
     )
 
 };
