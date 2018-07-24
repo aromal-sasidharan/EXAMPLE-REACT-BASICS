@@ -10,9 +10,9 @@ import wrapperWithClass from '../components/hoc/wrapperWithClass'
 class App extends PureComponent {
     state = {
         persons: [
-            {name: "Aromal", age: 28, id:Math.random()},
+            {name: "Aromal", age: 30, id:Math.random()},
             {name: "Adarsh", age: 30, id:Math.random()},
-            {name: "Shiju", age: 40,  id:Math.random()},
+            {name: "Shiju", age: 18,  id:Math.random()},
         ],
         showPersons: false,
         toggleClickCount:0,
@@ -75,7 +75,7 @@ class App extends PureComponent {
         return (
 
             <Aux>
-                    <h1>{this.props.title}</h1>
+                    <h1>{this.props.title} </h1>
 
                     <TogglePerson isPersonsShown={this.state.showPersons} onToggle={this.togglePersonsList}/>
                     <PersonList

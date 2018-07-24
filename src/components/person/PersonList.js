@@ -26,11 +26,12 @@ class PersonList extends React.PureComponent {
         console.log("[UPDATE PersonList.js] componentDidUpdate");
     }
     renderPerson = () => {
-        return this.props.persons.map((person) => {
+        return this.props.persons.map((person,index) => {
             return <Person
                 key={person.id}
                 name={person.name}
                 age={person.age}
+                position={index}
                 onChange={(event) => this.props.onChangeHandler(event,person.id)}
                 onDeleteClicked={() => {
                     this.props.onPersonDelete(person.id)
