@@ -12,7 +12,8 @@ class App extends PureComponent {
             {name: "Adarsh", age: 30, id:Math.random()},
             {name: "Shiju", age: 40,  id:Math.random()},
         ],
-        showPersons: false
+        showPersons: false,
+        toggleClickCount:0,
     };
     constructor(props){
         super(props);
@@ -58,11 +59,12 @@ class App extends PureComponent {
     };
     togglePersonsList = () => {
         const doShow = this.state.showPersons;
-        this.setState(
-            {
-                showPersons: !doShow
+        this.setState((prevState,props) => {
+            return {
+                showPersons: !prevState.showPersons,
+                toggleClickCount: prevState.toggleClickCount + 1
             }
-        );
+        })
     };
 
     render() {
