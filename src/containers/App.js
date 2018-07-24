@@ -3,6 +3,8 @@ import React, {PureComponent} from 'react';
 import PersonList from '../components/person/PersonList'
 import TogglePerson from '../components/person/TogglePerson'
 import styles from './App.css';
+import Aux from '../components/hoc/Aux'
+import wrapperWithClass from '../components/hoc/wrapperWithClass'
 
 
 class App extends PureComponent {
@@ -72,19 +74,19 @@ class App extends PureComponent {
 
         return (
 
-                <div className={styles.App}>
+            <Aux>
                     <h1>{this.props.title}</h1>
-                    <button onClick={()=> {this.setState({showPersons:true})}}> Show Always </button>
+
                     <TogglePerson isPersonsShown={this.state.showPersons} onToggle={this.togglePersonsList}/>
                     <PersonList
                         showPersons={this.state.showPersons}
                         persons={this.state.persons}
                         onChangeHandler={this.onChangeHandler}
                         onPersonDelete={this.onPersonDelete}/>
-                </div>
+            </Aux>
 
         );
     }
 }
 
-export default App;
+export default wrapperWithClass(styles.App,App);

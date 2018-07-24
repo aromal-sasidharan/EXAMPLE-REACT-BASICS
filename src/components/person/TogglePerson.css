@@ -1,22 +1,23 @@
-.TogglePerson button{
+.TogglePerson{
 
     background: green;
     color:white;
     border:1px solid blue;
     padding:8px;
+
     cursor: pointer;
 }
 
 
 
-.TogglePerson button:hover{
+.TogglePerson:hover{
 
     background:lightgreen;
 }
 
-.TogglePerson button.Red{
+.TogglePerson.Red{
     background-color: red;
 }
-.TogglePerson button.Red:hover{
+.TogglePerson.Red:hover{
     background-color: salmon;
 }
